@@ -17,24 +17,21 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Specify Node.js version 16
+          node-version: '14' 
 
       - name: Install dependencies
         run: npm install
 
       - name: Run linters
         run: |
-          # Run ESLint for JavaScript files
           npx eslint . --ext .js
 
       - name: Run tests
         run: |
-          # Run Jest tests
           npx jest
 
       - name: Build project
         run: |
-          # Build the project (if applicable)
           npm run build
 
       - name: Deploy to GitHub Pages
