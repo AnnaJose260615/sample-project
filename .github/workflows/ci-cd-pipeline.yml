@@ -30,7 +30,7 @@ jobs:
     if: success() 
     environment:
       name: sample
-      url: https://127.0.0.1:5500/daily-task/todolist/todolist.html
+      url: http://127.0.0.1:5500/todolist.html
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
