@@ -24,6 +24,16 @@ jobs:
       - name: Build Application
         run: echo "Building application..."
 
-      - name: Deploy Application (if approved)
-        if: github.event_name == 'push'
-        run: echo "Deploying application..."
+  deploy:
+    needs: build  
+    runs-on: ubuntu-latest
+    if: success() 
+    environment:
+      name: sample
+      url: https://127.0.0.1:5500/daily-task/todolist/todolist.html
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Deploy Application
+        run: echo "Deploying to production..."
